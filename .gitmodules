@@ -1,0 +1,3 @@
+[submodule "totolist"]
+	path = totolist
+	url = https://github.com/gducampus/totolist.git

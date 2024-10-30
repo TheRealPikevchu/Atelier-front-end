@@ -1,0 +1,51 @@
+#task-detailed-view {
+  .headline {
+    & .btn {
+      width: 100%;
+    }
+  }
+
+  #metadata {
+    p {
+      margin-bottom: 0px;
+    }
+
+    .creation-date {
+      color: var(--bs-gray-600);
+    }
+  }
+
+  #task-description,
+  #task-description-field {
+    height: 300px;
+    margin-bottom: 0px;
+  }
+
+  .autoComplete_wrapper {
+
+    &>input {
+      width: 100%;
+      height: 2.5em;
+      padding: 0;
+      border: 0 none transparent;
+      border-radius: 0;
+      border-bottom: 2px solid var(--bs-dark);
+      background-image: none;
+      color: var(--bs-dark);
+    }
+
+    & > #autoComplete_list_1 {
+      width: fit-content;
+    }
+  }
+
+  #tag-cancel-button {
+    display: flex;
+    width: 1.5em;
+    height: 1.5em;
+
+    padding: 0;
+    border-radius: 1000px;
+    align-self: center;
+  }
+}

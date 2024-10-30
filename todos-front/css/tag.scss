@@ -1,0 +1,30 @@
+.tag {
+  padding: 5px 5px;
+  width: fit-content;
+  margin-bottom: 0;
+
+  border-radius: 5px;
+  background-color: var(--bs-primary);
+
+  font-size: small;
+  font-weight: bold;
+  color: var(--bs-light);
+}
+
+.tag.flex-grow-1 {
+  width: auto;
+  text-align: center;
+}
+
+#add-tag-button.tag {
+  display: none;
+
+  &.editable {
+    display: block;
+  }
+}
+
+#add-tag-button.tag:hover {
+  background-color: hsl(from var(--bs-primary) h s calc(l - 5));
+
+}
