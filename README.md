@@ -1,6 +1,7 @@
 Project done within the Front end interface programming GDU course. The goal was to create a basic taks management app, communicating with a given API and using a given front-end.
 
 # Files management
+```
 TODOLIST/
 |-- package.json
 |-- todos-front/
@@ -17,6 +18,7 @@ TODOLIST/
 |   |   |-- task.js
 |-- totolist/
 |-- README.md
+```
 
 ## Index
 Index acts as the landing page of the app.
