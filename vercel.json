@@ -1,5 +1,8 @@
 {
-  "routes": [
-    { "src": "/", "dest": "/js/index.html" }
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/todos-front/index.html"
+    }
   ]
 }
