@@ -1,20 +1,20 @@
 const serverPort = 3000
-const localApiAddress = `http://localhost:${serverPort}/` // local for dev
+const localApiAddress = 'http://localhost:'+serverPort+'/' // local for dev
 const webApiAddress = 'https://back-atelier-front-end.vercel.app/' // deployement
 
 const headers = {
   'Content-type': 'application/json',
-  'Access-Control-Allow-Origin:': webApiAddress
+  'Access-Control-Allow-Origin': webApiAddress
 }
 
-
 const isDevMode = false // true for local server, false for web server
+
 const verbose = false
 
 let apiAddress = isDevMode ? localApiAddress : webApiAddress
 
 export async function getTasksList () {
-  return fetch(`${apiAddress}todos'`, {
+  return fetch(apiAddress+'todos/', {
     method: 'GET',
     headers: headers
   })
@@ -33,7 +33,7 @@ export async function getTasksList () {
 }
 
 export async function postNewTask (todo) {
-  return fetch(`${apiAddress}todos'`, {
+  return fetch(apiAddress+'todos/', {
     method: 'POST',
     headers: headers,
     body: JSON.stringify(todo)
@@ -52,7 +52,7 @@ export async function postNewTask (todo) {
 }
 
 export async function getTask (id) {
-  return fetch(`${apiAddress}todos/'${id}`, {
+  return fetch(apiAddress+'todos/'+id, {
     method: 'GET',
     headers: headers
   })
@@ -80,7 +80,7 @@ export async function getTask (id) {
 }
 
 export async function editTask (id, todo) {
-  return fetch(`${apiAddress}todos/'${id}`, {
+  return fetch(apiAddress+'todos/'+id, {
     method: 'PUT',
     headers: headers,
     body: JSON.stringify(todo)
@@ -108,7 +108,7 @@ export async function editTask (id, todo) {
 }
 
 export async function deleteTask (id) {
-  return fetch(`${apiAddress}todos'/${id}`, {
+  return fetch(apiAddress+'todos/'+id, {
     method: 'DELETE',
     headers: headers
   }).then((response) => {
