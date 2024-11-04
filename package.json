@@ -2,7 +2,8 @@
     "name": "todolist-package",
     "devDependencies": {
         "@tarekraafat/autocomplete.js": "^10.2.9",
-        "standard": "*"
+        "standard": "*",
+        "chart.js": "^4.4.5"
     },
     "scripts": {
         "test": "standard && node my-tests.js"
