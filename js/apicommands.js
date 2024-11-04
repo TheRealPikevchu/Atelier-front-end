@@ -2,6 +2,11 @@ const serverPort = 3000
 const localApiAddress = `http://localhost:${serverPort}/` // local for dev
 const webApiAddress = 'https://back-atelier-front-end.vercel.app/' // deployement
 
+const headers = {
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin:': webApiAddress
+}
+
 
 const isDevMode = false // true for local server, false for web server
 const verbose = false
@@ -9,7 +14,10 @@ const verbose = false
 let apiAddress = isDevMode ? localApiAddress : webApiAddress
 
 export async function getTasksList () {
-  return fetch(`${apiAddress}/todos'`)
+  return fetch(`${apiAddress}todos'`, {
+    method: 'GET',
+    headers: headers
+  })
     .then((response) => response.json())
     .then((data) => {
       if (verbose) {
@@ -25,11 +33,9 @@ export async function getTasksList () {
 }
 
 export async function postNewTask (todo) {
-  return fetch(`${apiAddress}/todos'`, {
+  return fetch(`${apiAddress}todos'`, {
     method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify(todo)
   }).then((response) => response.json())
     .then((data) => {
@@ -46,7 +52,10 @@ export async function postNewTask (todo) {
 }
 
 export async function getTask (id) {
-  return fetch(`${apiAddress}/todos/'${id}`)
+  return fetch(`${apiAddress}todos/'${id}`, {
+    method: 'GET',
+    headers: headers
+  })
     .then((response) => {
       if (response.status === 404) {
         throw new Error(`The task #${id} you are trying to get does not exist.`, 404)
@@ -71,11 +80,9 @@ export async function getTask (id) {
 }
 
 export async function editTask (id, todo) {
-  return fetch(`${apiAddress}/todos/'${id}`, {
+  return fetch(`${apiAddress}todos/'${id}`, {
     method: 'PUT',
-    headers: {
-      'Content-type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify(todo)
   }).then((response) => {
     if (response.status === 404) {
@@ -101,11 +108,9 @@ export async function editTask (id, todo) {
 }
 
 export async function deleteTask (id) {
-  return fetch(`${apiAddress}/todos'/${id}`, {
+  return fetch(`${apiAddress}todos'/${id}`, {
     method: 'DELETE',
-    headers: {
-      'Content-type': 'application/json'
-    }
+    headers: headers
   }).then((response) => {
     if (response.status === 404) {
       throw new Error(`The task #${id} you are trying to delete does not exist.`)
